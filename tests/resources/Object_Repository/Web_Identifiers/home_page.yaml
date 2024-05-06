@@ -1,0 +1,2 @@
+HomePage:
+  SearchBtn: xpath=//input[@type="submit"]

@@ -1,0 +1,4 @@
+testObjectRepository:
+  directory: tests/resources/Object_Repository
+webElementIdentifiers:
+  directory: tests/resources/Object_Repository/Web_Identifiers

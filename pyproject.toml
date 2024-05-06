@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "trangptt_test_library"
+version = "1.0.0"
+description = "Automation Test Suite for MarsAir project"
+authors = ["Trang Pham <trangptt315@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+robotframework = "^7.0"
+robotframework-tidy = "^4.11.0"
+robotframework-pythonlibcore = "^4.4.1"
+robotframework-browser = "^18.3.0"
+jsonpath-ng = "^1.6.1"
+pyyaml = "^6.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
