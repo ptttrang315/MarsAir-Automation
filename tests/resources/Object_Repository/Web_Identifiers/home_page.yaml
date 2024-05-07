@@ -4,4 +4,5 @@ HomePage:
   SearchBtn: xpath=//input[@type="submit"]
   DepartingDropdown: xpath=//select[@id="departing"]
   ReturningDropdown: xpath=//select[@id="returning"]
+  PromoCodeInput: xpath= //input[@id="promotional_code"]
 

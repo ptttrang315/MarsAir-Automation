@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ../libraries/WebUI.robot
+Resource    ../libraries/Utilities.robot
 Library    trangptt_test_library.utilities.src.test_object.object_repository.ObjectRepository
 
 *** Keywords ***
@@ -25,7 +26,21 @@ Select Option By Value
     Select Options By    ${testObject.get_value()}    text    ${value}
 
 Get Options In Dropdown List
-    [Arguments]    ${objectId}
+    [Arguments]    ${objectId}    ${key}=label
     ${testObject}    findTestObject    ${objectId}
     ${options}    Get Select Options    ${testObject.get_value()}
-    RETURN    ${options}
+    ${values}    Create List
+    FOR    ${option}    IN    @{options}
+        Append To List    ${values}    ${option["${key}"]}
+    END
+    RETURN    ${values}
+
+Input text
+    [Arguments]    ${objectId}    ${text}
+    ${testObject}    findTestObject    ${objectId}
+    Fill Text    ${testObject.get_value()}    ${text}
+
+Get Element By Type
+    [Arguments]    ${type}    ${text}
+    ${element}    Get Element By    ${type}    ${text}
+    RETURN    ${element}

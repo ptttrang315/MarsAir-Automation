@@ -1,2 +1,5 @@
 SearchResults:
   MsgLabel: xpath=//*[@id="content"]
+  MsgCodeLabel: xpath=//*[@id="content"]//*[@class="promo_code"]
+  BackLink: xpath=//a[text()=" Back"]
+  LinkToHomePage: xpath=//*[contains(text(),'Book a ticket to the red planet now!')]

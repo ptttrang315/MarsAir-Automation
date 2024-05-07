@@ -1,2 +1,4 @@
 MarsAir:
   Logo: xpath= //body//a[normalize-space()="MarsAir"]
+  ReportAnIssue: //a[normalize-space()="Report an issue"]
+  ViewOpenIssues: //a[normalize-space()="View open issues"]

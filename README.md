@@ -31,7 +31,8 @@ Command to execute all test cases with tag "MarsAir"
 ```Bash
 robot --include MarsAir --outputdir reports --variable configuration_base:tests/resources/configurations/global.yaml ./
 ```
-
+We just change the tag after "--include" to run test cases in each user story.For User Story 1, we can use the following command.
 ```Bash
 robot --include US1 --outputdir reports --variable configuration_base:tests/resources/configurations/global.yaml ./
 ```
+Moreover, I also add more tags for some specific test, you can use them to run test ![img.png](img.png) 
