@@ -1,0 +1,2 @@
+MarsAir:
+  Logo: xpath= //body//a[normalize-space()="MarsAir"]

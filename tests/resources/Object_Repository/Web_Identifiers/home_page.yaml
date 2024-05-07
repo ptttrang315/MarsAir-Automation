@@ -1,2 +1,7 @@
 HomePage:
+  DepartureLbl: xpath=//label[@for="departing"]
+  ReturnLbl: xpath=//label[@for="returning"]
   SearchBtn: xpath=//input[@type="submit"]
+  DepartingDropdown: xpath=//select[@id="departing"]
+  ReturningDropdown: xpath=//select[@id="returning"]
+

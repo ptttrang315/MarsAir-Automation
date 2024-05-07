@@ -18,3 +18,14 @@ Get Text Element
     ${testObject}    findTestObject    ${objectId}
     ${text}    Get Text    ${testObject.get_value()}    ${assertion_operator}    ${assertion_expected}    ${message}
     RETURN    ${text}
+
+Select Option By Value
+    [Arguments]    ${objectId}    ${value}
+    ${testObject}    findTestObject    ${objectId}
+    Select Options By    ${testObject.get_value()}    text    ${value}
+
+Get Options In Dropdown List
+    [Arguments]    ${objectId}
+    ${testObject}    findTestObject    ${objectId}
+    ${options}    Get Select Options    ${testObject.get_value()}
+    RETURN    ${options}
