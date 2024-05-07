@@ -1,3 +1,3 @@
 *** Settings ***
-Library    String
-Library    Collections
+Library     String
+Library     Collections

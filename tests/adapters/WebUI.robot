@@ -1,11 +1,20 @@
 *** Settings ***
 Resource    ../libraries/WebUI.robot
 Resource    ../libraries/Utilities.robot
-Library    trangptt_test_library.utilities.src.test_object.object_repository.ObjectRepository
+Library     trangptt_test_library.utilities.src.test_object.object_repository.ObjectRepository
+
 
 *** Keywords ***
+Get Browser Name
+    ${env_set}    Run Keyword And Return Status    Variable Should Exist    ${BROWSER_NAME}
+    ${name}    Set Variable If    ${env_set}    ${BROWSER_NAME}    chromium
+    RETURN    ${name}
+
 Open Browser
-    [Arguments]    ${url}    ${browser}=chromium    ${headless}=${False}    ${wait_until}=load
+    [Arguments]    ${url}    ${browser}=None    ${headless}=${False}    ${wait_until}=load
+    IF    ${browser} is None
+        ${browser}    Get Browser Name
+    END
     New Browser    browser=${browser}    headless=${headless}
     New Page    ${url}    wait_until=${wait_until}
 
@@ -15,7 +24,7 @@ Click Element
     Click    ${testObject.get_value()}    ${button}
 
 Get Text Element
-    [Arguments]    ${objectId}     ${assertion_operator}=None    ${assertion_expected}=None    ${message}=None
+    [Arguments]    ${objectId}    ${assertion_operator}=None    ${assertion_expected}=None    ${message}=None
     ${testObject}    findTestObject    ${objectId}
     ${text}    Get Text    ${testObject.get_value()}    ${assertion_operator}    ${assertion_expected}    ${message}
     RETURN    ${text}

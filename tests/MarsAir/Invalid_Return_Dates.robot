@@ -1,6 +1,16 @@
 *** Settings ***
-Resource    ../adapters/WebUI.robot
-Suite Setup    Open Browser   https://marsair.recruiting.thoughtworks.net/TrangPham
+Resource        ../adapters/WebUI.robot
+
+Suite Setup     Open Browser    https://marsair.recruiting.thoughtworks.net/TrangPham
+
+
+*** Test Cases ***
+Verify the message when selecting the "Return" is less than one year from the "Departure"
+    [Tags]    us4    lessthanoneyear
+    [Template]    Search Tickets
+    December    December    Unfortunately, this schedule is not possible. Please try again.
+    December    July (next year)    Unfortunately, this schedule is not possible. Please try again.
+
 
 *** Keywords ***
 Search Tickets
@@ -10,11 +20,5 @@ Search Tickets
     Select Option By Value    HomePage.ReturningDropdown    ${return}
     Click Element    HomePage.SearchBtn
     ${text}    Get Text Element    SearchResults.MsgLabel    contains    ${expectedMsg}
-    [Teardown]    Click Element    MarsAir.Logo
-
-*** Test Cases ***
-Verify the message when selecting the "Return" is less than one year from the "Departure"
-    [Template]    Search Tickets
-    [Tags]    US4    LessThanOneYear
-    December    December    Unfortunately, this schedule is not possible. Please try again.
-    December    July (next year)    Unfortunately, this schedule is not possible. Please try again.
+    [Teardown]    Run Keywords    Take Screenshot
+    ...    AND    Click Element    MarsAir.Logo
